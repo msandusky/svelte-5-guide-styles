@@ -544,11 +544,7 @@ dialog.modal::backdrop {
 }
 
 .dialog-dropdown-content input[type="search"] {
-  position: sticky;
-  top: 1rem;
-  background: light-dark(var(--bg-menu-light), var(--bg-menu-dark));
 	margin-bottom: .5rem;
-  z-index: 3;
 }
 
 .dialog-dropdown-content ul {
