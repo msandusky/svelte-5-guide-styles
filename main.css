@@ -190,6 +190,14 @@ body[data-theme="dark"] {
 	color-scheme: dark;
 }
 
+.container {
+	container-type: inline-size;
+	width: 100%;
+	max-width: 1000px;
+	padding: 0 1.5rem;
+	margin: 0 auto;
+}
+
 h1, h2, h3, h4, button, input, select, label {
 	color: light-dark(var(--text-primary-light), var(--text-primary-dark));
 }
@@ -331,10 +339,6 @@ input {
 	padding: .5rem;
 }
 
-input:focus {
-	border-color: light-dark(var(--border-input-focus-light), var(--border-input-focus-dark));
-}
-
 input[type="checkbox"],
 input[type="radio"] {
 	accent-color: var(--checkbox);
@@ -342,33 +346,8 @@ input[type="radio"] {
 	padding: unset;
 }
 
-input.error,
-input.error:focus,
-.input-btn-group:has(input.error) > button,
-.input-btn-group:has(input.error:focus) > button {
-  border-color: light-dark(var(--border-input-red-light), var(--border-input-red-dark));
-}
-
-.input-btn-group:has(input.error) > button svg {
-  stroke: light-dark(var(--border-input-red-light), var(--border-input-red-dark));
-}
-
-.input-error-text {
-  color: light-dark(var(--border-input-red-light), var(--border-input-red-dark));
-  font-size: .875rem;
-  margin-top: .25rem;
-}
-
 input:disabled {
 	cursor: not-allowed;
-}
-
-.container {
-	container-type: inline-size;
-	width: 100%;
-	max-width: 1000px;
-	padding: 0 1.5rem;
-	margin: 0 auto;
 }
 
 .input-btn-group {
@@ -397,8 +376,26 @@ input:disabled {
 	stroke-width: 1.5px;
 }
 
+input:focus,
 .input-btn-group:has(input:focus) > button {
 	border-color: light-dark(var(--border-input-focus-light), var(--border-input-focus-dark));
+}
+
+input.error,
+input.error:focus,
+.input-btn-group:has(input.error) > button,
+.input-btn-group:has(input.error:focus) > button {
+  border-color: light-dark(var(--border-input-red-light), var(--border-input-red-dark));
+}
+
+.input-btn-group:has(input.error) > button svg {
+  stroke: light-dark(var(--border-input-red-light), var(--border-input-red-dark));
+}
+
+.input-error-text {
+  color: light-dark(var(--border-input-red-light), var(--border-input-red-dark));
+  font-size: .875rem;
+  margin-top: .25rem;
 }
 
 fieldset {
