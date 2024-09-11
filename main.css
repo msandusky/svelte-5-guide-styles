@@ -350,10 +350,9 @@ input.error:focus,
   margin-top: .25rem;
 }
 
-/* input:disabled {
-	opacity: .5;
+input:disabled {
 	cursor: not-allowed;
-} */
+}
 
 .container {
 	container-type: inline-size;
