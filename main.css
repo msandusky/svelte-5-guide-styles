@@ -336,12 +336,11 @@ input[type="radio"] {
 
 input.error,
 input.error:focus,
-input.error ~ button,
-input.error:focus ~ button {
+.input-btn-group:has(input.error) > button {
   border-color: light-dark(var(--border-input-red-light), var(--border-input-red-dark));
 }
 
-input.error ~ button svg {
+.input-btn-group:has(input.error) > button svg {
   stroke: light-dark(var(--border-input-red-light), var(--border-input-red-dark));
 }
 
