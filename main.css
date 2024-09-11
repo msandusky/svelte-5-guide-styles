@@ -653,8 +653,8 @@ dialog.modal::backdrop {
 
 .filters {
   display: flex;
-  gap: .75rem;
-  margin-bottom: .75rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
   text-transform: capitalize;
 }
 
