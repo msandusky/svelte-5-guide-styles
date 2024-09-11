@@ -293,7 +293,12 @@ td {
 	background: light-dark(var(--table-stripe-light), var(--table-stripe-dark));
 }
 
+.table-edit {
+  table-layout: fixed;
+}
+
 .table-edit th {
+  width: max-content;
 	border-color: transparent;
 }
 
