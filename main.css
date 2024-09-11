@@ -386,6 +386,10 @@ input.error:focus + button {
 	stroke-width: 1.5px;
 }
 
+.input-btn-group:has(input:focus) > button {
+	border-color: light-dark(var(--border-input-focus-light), var(--border-input-focus-dark));
+}
+
 fieldset {
 	border: none;
 	padding: 0;
