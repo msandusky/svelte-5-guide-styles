@@ -362,7 +362,13 @@ fieldset {
 	margin: 0;
 }
 
-legend {
+fieldset.fieldset-border {
+  border: 1px solid light-dark(var(--border-light), var(--border-dark));
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
+fieldset:not(.fieldset-border) legend {
 	font-weight: 500;
 	padding: 0;
 	margin-bottom: 1rem;
