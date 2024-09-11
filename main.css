@@ -335,7 +335,6 @@ input {
 	background: none;
 	border: 1px solid light-dark(var(--border-input-light), var(--border-input-dark));
 	border-radius: .375rem;
-	outline: none;
 	padding: .5rem;
 }
 
