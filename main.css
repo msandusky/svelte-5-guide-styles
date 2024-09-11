@@ -614,8 +614,8 @@ dialog.modal::backdrop {
 }
 
 .dialog-dropdown-content ul li:hover button,
-.dialog-dropdown-content ul li button:focus,
-.dialog-dropdown-content ul li button.selected:not(:focus) {
+.dialog-dropdown-content ul li button:focus:not(.selected),
+.dialog-dropdown-content ul li button.selected {
 	background: light-dark(var(--menu-hover-light), var(--menu-hover-dark));
 }
 
