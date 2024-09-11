@@ -351,6 +351,17 @@ input:disabled {
 
 .input-btn-group {
 	display: flex;
+  border-radius: .375rem;
+}
+
+.input-btn-group:has(input:focus) input {
+  outline: none;
+}
+
+.input-btn-group:has(input:focus) {
+  outline: medium auto currentColor;
+  outline: medium auto invert;
+  outline: 5px auto -webkit-focus-ring-color;
 }
 
 .input-btn-group > *:first-child {
