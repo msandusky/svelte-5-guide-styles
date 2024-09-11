@@ -336,7 +336,8 @@ input[type="radio"] {
 
 input.error,
 input.error:focus,
-.input-btn-group:has(input.error) > button {
+.input-btn-group:has(input.error) > button,
+.input-btn-group:has(input.error:focus) > button {
   border-color: light-dark(var(--border-input-red-light), var(--border-input-red-dark));
 }
 
@@ -559,8 +560,8 @@ dialog.modal::backdrop {
 	font-weight: normal;
 }
 
-.dialog-dropdown-wrapper:has(dialog.dialog-dropdown[open]) span,
-.dialog-dropdown-wrapper:has(dialog.dialog-dropdown[open]) button {
+.dialog-dropdown-wrapper:has(dialog.dialog-dropdown[open]) > span,
+.dialog-dropdown-wrapper:has(dialog.dialog-dropdown[open]) > button {
 	z-index: 2;
 }
 
@@ -607,7 +608,9 @@ dialog.modal::backdrop {
 	font-weight: normal;
 }
 
-.dialog-dropdown-content ul li:hover button {
+.dialog-dropdown-content ul li:hover button,
+.dialog-dropdown-content ul li button:focus,
+.dialog-dropdown-content ul li button.selected:not(:focus) {
 	background: light-dark(var(--menu-hover-light), var(--menu-hover-dark));
 }
 
