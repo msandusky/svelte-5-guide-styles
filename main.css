@@ -506,12 +506,9 @@ dialog.modal {
 	background: none;
 	border: none;
 	border-radius: .5rem;
-	padding: 2px;
+	box-shadow: 0 8px 24px -16px light-dark(var(--box-shadow-modal-light), var(--box-shadow-modal-dark));;
+	padding: 0;
 	margin: 0 auto;
-}
-
-dialog.modal:not(.modal-alt) {
-	box-shadow: 0 8px 24px -16px light-dark(var(--box-shadow-modal-light), var(--box-shadow-modal-dark));
 }
 
 dialog.modal .modal-sm {
@@ -580,6 +577,11 @@ dialog.modal::backdrop {
 
 .modal-footer button:not(.btn-primary) {
 	background: light-dark(var(--bg-modal-light), var(--bg-modal-dark));
+}
+
+.modal-alt {
+	box-shadow: none;
+	padding: 2px;
 }
 
 .modal-alt .modal-header {
