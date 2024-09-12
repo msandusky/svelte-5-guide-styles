@@ -481,7 +481,7 @@ dialog.modal {
 	border: none;
 	border-radius: .5rem;
 	box-shadow: 0 8px 24px -16px light-dark(var(--box-shadow-modal-light), var(--box-shadow-modal-dark));
-	padding: 0;
+	padding: 2px;
 	margin: 0 auto;
 }
 
