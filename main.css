@@ -116,7 +116,7 @@ textarea:not([rows]) {
 	--card-header-light: hsla(240, 27%, 98%, 1);
 	--bg-menu-light: var(--background-100-light);
 	--menu-hover-light: hsla(231, 36%, 97%, 1);
-	--box-shadow-dropdown-light: hsla(228, 67%, 26%, 0.20);
+	--box-shadow-dropdown-light: hsla(228, 67%, 26%, .2);
 	--box-shadow-modal-light: hsla(223, 36%, 16%, .5);
 	--fade-light: linear-gradient(transparent, var(--card-light));
 	--bd-modal-light: hsla(200, 12%, 72%, 0.4);
@@ -153,8 +153,8 @@ textarea:not([rows]) {
 	--card-header-dark: hsla(229, 38%, 12%, 1);
 	--bg-menu-dark: hsla(229, 38%, 16%, 1);
 	--menu-hover-dark: hsla(229, 34%, 20%, 1);
-	--box-shadow-dropdown-dark: hsla(228, 68.89%, 1.87%, 92%);
-	--box-shadow-modal-dark: hsla(223deg 45.91% 6.49%, .7);
+	--box-shadow-dropdown-dark: hsla(228, 68.89%, 1.87%, .92);
+	--box-shadow-modal-dark: hsla(223, 45.91%, 6.49%, .7);
 	--fade-dark: linear-gradient(transparent, var(--card-dark));
 	--bd-modal-dark: hsla(231, 44%, 8%, 0.8);
 	--bg-modal-dark: var(--menu-hover-dark);
@@ -473,7 +473,7 @@ dialog.modal {
 	background: none;
 	border: none;
 	border-radius: .5rem;
-	box-shadow: 0 8px 24px -16px light-dark(hsla(223, 36%, 16%, .5), hsla(223deg 50.97% 6.23%, 61%));
+	box-shadow: 0 8px 24px -16px light-dark(var(--box-shadow-modal-light), var(--box-shadow-modal-dark));
 	padding: 0;
 	margin: 0 auto;
 }
@@ -565,6 +565,10 @@ dialog.modal::backdrop {
 	align-items: center;
 	justify-content: center;
 	margin-top: .5rem;
+}
+
+.modal-alt .modal-footer button:not(.btn-primary) {
+	border-color: transparent;
 }
 
 .dialog-dropdown-wrapper:has(dialog.dialog-dropdown[open])::before {
@@ -759,7 +763,7 @@ dialog.modal::backdrop {
 	min-width: 260px;
 	background: light-dark(var(--bg-menu-light), var(--bg-menu-dark));
 	border-radius: .5rem;
-	box-shadow: 0 4px 18px -6px light-dark(hsla(228, 67%, 26%, 0.20), hsla(228, 68.89%, 1.87%, 92%));
+	box-shadow: 0 4px 18px -6px light-dark(var(--box-shadow-dropdown-light), var(--box-shadow-dropdown-dark));
 	padding: 1rem 0;
 	z-index: 1;
 }
