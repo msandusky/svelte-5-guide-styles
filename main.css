@@ -109,8 +109,9 @@ textarea:not([rows]) {
 	--background-300-light: hsla(220, 65%, 93%, 1);
 	--border-light: hsla(218, 44%, 93%, 1);
 	--border-input-light: hsla(218, 30%, 84%, 1);
-	--border-input-focus-light: hsla(218, 32%, 70%, 1);
-  --border-input-red-light: hsla(0, 84%, 60%, 1);
+	--border-input-focus-light: hsla(218, 32%, 70%, .7);
+	--border-input-hover-light: hsla(218, 32%, 70%, 1);
+  --border-input-focus-red-light: hsla(0, 84%, 60%, 1);
 	--bg-body-light: hsla(230, 100%, 100%, 1);
 	--card-light: var(--background-100-light);
 	--card-header-light: hsla(240, 27%, 98%, 1);
@@ -146,8 +147,9 @@ textarea:not([rows]) {
 	--background-200-dark: hsla(229, 38%, 15%, 1);
 	--border-dark: hsla(230, 40%, 18%, 1);
 	--border-input-dark: hsla(230, 32%, 32%, 1);
-	--border-input-focus-dark: hsla(230, 30%, 46%, 1);
-  --border-input-red-dark: hsla(0, 91%, 71%, 1);
+	--border-input-focus-dark: hsla(230, 30%, 46%, .7);
+	--border-input-hover-dark: hsla(230, 30%, 46%, 1);
+  --border-input-focus-red-dark: hsla(0, 91%, 71%, 1);
 	--bg-body-dark: var(--background-100-dark);
 	--card-dark: hsla(230, 40%, 9%, 1);
 	--card-header-dark: hsla(229, 38%, 12%, 1);
@@ -347,6 +349,10 @@ input[type="radio"] {
 	padding: unset;
 }
 
+input:focus {
+	outline: 1px solid light-dark(var(--border-input-focus-light), var(--border-input-focus-dark));
+}
+
 input:disabled {
 	cursor: not-allowed;
 }
@@ -362,16 +368,12 @@ input:disabled {
 
 .input-btn-group:has(input:focus),
 .input-btn-group:has(button:active) {
-  outline: medium auto currentColor;
-  outline: medium auto invert;
-  outline: 5px auto -webkit-focus-ring-color;
+  outline: 1px solid light-dark(var(--border-input-focus-light), var(--border-input-focus-dark));
 }
 
 .input-btn-group:has(input.error:focus),
 .input-btn-group:has(input.error):has(button:active) {
-  outline: medium auto light-dark(var(--border-input-red-light), var(--border-input-red-dark));
-  outline: medium auto invert;
-  outline: 5px auto light-dark(var(--border-input-red-light), var(--border-input-red-dark));
+  outline: 1px solid light-dark(var(--border-input-focus-red-light), var(--border-input-focus-red-dark));
 }
 
 .input-btn-group > *:first-child {
@@ -402,28 +404,26 @@ input:disabled {
 
 input:hover,
 .input-btn-group:has(input:hover) > button {
-	border-color: light-dark(var(--border-input-focus-light), var(--border-input-focus-dark));
+	border-color: light-dark(var(--border-input-hover-light), var(--border-input-hover-dark));
 }
 
 input.error,
 input.error:focus,
 .input-btn-group:has(input.error) > button,
 .input-btn-group:has(input.error:focus) > button {
-  border-color: light-dark(var(--border-input-red-light), var(--border-input-red-dark));
+  border-color: light-dark(var(--border-input-focus-red-light), var(--border-input-focus-red-dark));
 }
 
 input.error:focus {
-  outline: medium auto light-dark(var(--border-input-red-light), var(--border-input-red-dark));
-  outline: medium auto invert;
-  outline: 5px auto light-dark(var(--border-input-red-light), var(--border-input-red-dark));
+  outline: 1px solid light-dark(var(--border-input-focus-red-light), var(--border-input-focus-red-dark));
 }
 
 .input-btn-group:has(input.error) > button svg {
-  stroke: light-dark(var(--border-input-red-light), var(--border-input-red-dark));
+  stroke: light-dark(var(--border-input-focus-red-light), var(--border-input-focus-red-dark));
 }
 
 .input-error-text {
-  color: light-dark(var(--border-input-red-light), var(--border-input-red-dark));
+  color: light-dark(var(--border-input-focus-red-light), var(--border-input-focus-red-dark));
   font-size: .875rem;
   margin-top: .25rem;
 }
