@@ -423,6 +423,7 @@ input:disabled {
 .input-btn-group > button {
   display: flex;
   align-items: center;
+	outline: none;
 }
 
 .input-btn-group > button:active {
@@ -505,9 +506,12 @@ dialog.modal {
 	background: none;
 	border: none;
 	border-radius: .5rem;
-	box-shadow: 0 8px 24px -16px light-dark(var(--box-shadow-modal-light), var(--box-shadow-modal-dark));
 	padding: 2px;
 	margin: 0 auto;
+}
+
+dialog.modal:not(.modal-alt) {
+	box-shadow: 0 8px 24px -16px light-dark(var(--box-shadow-modal-light), var(--box-shadow-modal-dark));
 }
 
 dialog.modal .modal-sm {
