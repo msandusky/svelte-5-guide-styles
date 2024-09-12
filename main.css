@@ -225,7 +225,8 @@ button {
 	padding: .5rem;
 }
 
-button:focus {
+button:focus,
+a.btn-a:focus-visible {
 	outline: 2px solid light-dark(var(--btn-focus-light), var(--btn-focus-dark));
 }
 
@@ -523,14 +524,15 @@ dialog.modal::backdrop {
 }
 
 .modal-header button {
-	transform: translateY(-8%);
+	display: inline-flex;
 	background: none;
 	border: none;
-	font-size: 1.5rem;
-	font-weight: 300;
-	padding-top: 0;
-	padding-bottom: 0;
-	opacity: .4;
+	opacity: .7;
+}
+
+.modal-header button svg {
+	width: 1rem;
+	stroke-width: 1.5px;
 }
 
 .modal-body > p:first-child {
