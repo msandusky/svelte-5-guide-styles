@@ -219,7 +219,7 @@ button {
 	background: light-dark(var(--bg-body-light), var(--bg-body-dark));
 	border: 1px solid light-dark(var(--border-input-light), var(--border-input-dark));
 	border-radius: .375rem;
-	font-size: .935rem;
+	font-size: .9375rem;
 	font-weight: 500;
 	white-space: nowrap;
 	padding: .5rem;
