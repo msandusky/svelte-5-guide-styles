@@ -87,6 +87,7 @@ textarea:not([rows]) {
 	/* Shared vars */
 	--accent: hsla(170, 90%, 45%, 1);
 	--accent-green: hsla(170, 90%, 45%, 1);
+	--accent-purple-50: hsl(219.6, 63.4%, 58.2%);
 	--accent-purple: hsla(220, 60%, 40%, 1);
 	--green: hsla(170, 90%, 45%, 1);
 	--green-100: hsla(170, 94%, 40%, 1);
@@ -95,7 +96,7 @@ textarea:not([rows]) {
 	--green-a10: hsla(170, 90%, 45%, .1);
 	--white: hsla(228, 16%, 100%, 1);
 	--white-a5: hsla(228, 16%, 100%, .05);
-	--checkbox: hsla(220, 60%, 40%, 1);
+	--checkbox: var(--accent-purple);
 	--container-offset-left: 0;
 	--window-inner-width: 0px;
 	--window-inner-height: 0px;
@@ -215,6 +216,16 @@ h1, h2, h3, h4, button, input, select, label {
 ::-moz-placeholder {
 	color: light-dark(var(--text-placeholder-light), var(--text-placeholder-dark));
 	opacity: 1;
+}
+
+a {
+	color: var(--accent-purple-50);
+}
+
+a:focus-visible {
+	text-decoration: none;
+	outline: 2px solid var(--btn-focus-dark);
+	border-radius: .125rem;
 }
 
 button {
