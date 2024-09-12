@@ -220,11 +220,13 @@ button {
 	padding: .5rem;
 }
 
-button:active {
+button:active,
+button:active > * {
 	opacity: .7;
 }
 
-button:disabled:active {
+button:disabled:active,
+button:disabled:active > * {
 	opacity: 1;
 }
 
@@ -358,13 +360,15 @@ input:disabled {
   outline: none;
 }
 
-.input-btn-group:has(input:focus) {
+.input-btn-group:has(input:focus),
+.input-btn-group:has(button:active) {
   outline: medium auto currentColor;
   outline: medium auto invert;
   outline: 5px auto -webkit-focus-ring-color;
 }
 
-.input-btn-group:has(input.error:focus) {
+.input-btn-group:has(input.error:focus),
+.input-btn-group:has(input.error):has(button:active) {
   outline: medium auto light-dark(var(--border-input-red-light), var(--border-input-red-dark));
   outline: medium auto invert;
   outline: 5px auto light-dark(var(--border-input-red-light), var(--border-input-red-dark));
@@ -387,13 +391,17 @@ input:disabled {
   align-items: center;
 }
 
+.input-btn-group > button:active {
+  opacity: 1;
+}
+
 .input-btn-group svg {
   width: 1.125rem;
 	stroke-width: 1.5px;
 }
 
-input:focus,
-.input-btn-group:has(input:focus) > button {
+input:hover,
+.input-btn-group:has(input:hover) > button {
 	border-color: light-dark(var(--border-input-focus-light), var(--border-input-focus-dark));
 }
 
