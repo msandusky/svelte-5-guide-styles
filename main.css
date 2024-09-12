@@ -579,7 +579,7 @@ dialog.modal::backdrop {
 	background: light-dark(var(--bg-modal-light), var(--bg-modal-dark));
 }
 
-.modal-alt {
+dialog.modal-alt {
 	box-shadow: none;
 	padding: 2px;
 }
