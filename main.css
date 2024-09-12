@@ -112,6 +112,7 @@ textarea:not([rows]) {
 	--border-input-hover-light: hsla(218, 32%, 70%, 1);
 	--input-focus-light: hsla(218, 32%, 70%, .7);
   --input-focus-red-light: hsla(0, 84%, 60%, 1);
+  --input-focus-red-light-a60: hsla(0, 84%, 60%, .6);
 	--btn-focus-light: var(--input-focus-light);
 	--bg-body-light: hsla(230, 100%, 100%, 1);
 	--card-light: var(--background-100-light);
@@ -151,6 +152,7 @@ textarea:not([rows]) {
 	--border-input-hover-dark: hsla(230, 30%, 46%, 1);
 	--input-focus-dark: hsla(230, 30%, 46%, .7);
   --input-focus-red-dark: hsla(0, 91%, 71%, 1);
+  --input-focus-red-dark-a60: hsla(0, 91%, 71%, .6);
 	--btn-focus-dark: hsla(219.1, 50%, 63.9%, 0.86);
 	--bg-body-dark: var(--background-100-dark);
 	--card-dark: hsla(230, 40%, 9%, 1);
@@ -261,6 +263,17 @@ button:disabled:active > * {
 	font-size: 1.125rem;
 	border-radius: .5rem;
 	padding: .75rem;
+}
+
+.btn-icon {
+	display: inline-flex;
+	align-items: center;
+	gap: .375rem;
+}
+
+.btn-icon svg {
+	width: 1.125rem;
+	stroke-width: 1.5px;
 }
 
 details {
@@ -381,7 +394,7 @@ input:disabled {
 
 .input-btn-group:has(input.error:focus),
 .input-btn-group:has(input.error):has(button:active) {
-  outline: 2px solid light-dark(var(--input-focus-red-light), var(--input-focus-red-dark));
+  outline: 2px solid light-dark(var(--input-focus-red-light-a60), var(--input-focus-red-dark-a60));
 }
 
 .input-btn-group > *:first-child {
@@ -423,7 +436,7 @@ input.error:focus,
 }
 
 input.error:focus {
-  outline: 2px solid light-dark(var(--input-focus-red-light), var(--input-focus-red-dark));
+  outline: 2px solid light-dark(var(--input-focus-red-light-a60), var(--input-focus-red-dark-a60));
 }
 
 .input-btn-group:has(input.error) > button svg {
