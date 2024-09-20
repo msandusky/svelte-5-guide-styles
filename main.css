@@ -106,7 +106,7 @@ textarea:not([rows]) {
 	--text-secondary-light: hsla(220, 16%, 30%, 1);
 	--text-muted-light: hsla(220, 16%, 44%, .7);
 	--background-100-light: hsla(230, 50%, 100%, 1);
-	--background-200-light: hsla(225, 60%, 94%, 1);
+	--background-200-light: hsla(225, 52%, 97%, 1);
 	--background-300-light: hsla(220, 65%, 93%, 1);
 	--border-light: hsla(218, 44%, 93%, 1);
 	--border-input-light: hsla(218, 30%, 84%, 1);
@@ -184,7 +184,7 @@ textarea:not([rows]) {
 }
 
 body {
-	color-scheme: light-dark;
+	color-scheme: light dark;
 	color: light-dark(var(--text-secondary-light), var(--text-secondary-dark));
 	background: light-dark(var(--bg-body-light), var(--bg-body-dark));
 }
