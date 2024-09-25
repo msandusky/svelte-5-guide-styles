@@ -296,7 +296,7 @@ button {
   white-space: nowrap;
 }
 
-button:focus,
+button:focus-visible,
 a.btn-a:focus-visible {
   outline: 2px solid light-dark(var(--btn-focus-light), var(--btn-focus-dark));
 }
@@ -464,7 +464,14 @@ input[type='radio'] {
   accent-color: var(--checkbox);
 }
 
-input:focus {
+input[type='checkbox']:focus,
+input[type='radio']:focus {
+  outline: none;
+}
+
+input:focus,
+input[type='checkbox']:focus-visible,
+input[type='radio']:focus-visible {
   outline: 2px solid
     light-dark(var(--input-focus-light), var(--input-focus-dark));
 }
