@@ -163,6 +163,7 @@ textarea:not([rows]) {
   --sidebar-current-light: hsla(240, 24%, 96%, 1);
   --sidebar-hover-light: hsla(240, 27%, 98%, 1);
   --table-stripe-light: hsla(240, 27%, 98%, 1);
+  --table-border-light: hsla(218, 44%, 95%, 1);
   --text-placeholder-light: hsla(220, 16%, 44%, 0.5);
 
   --text-critical-light: #b91c1c;
@@ -203,17 +204,18 @@ textarea:not([rows]) {
   --sidebar-current-dark: hsla(229, 38%, 13%, 1);
   --sidebar-hover-dark: hsla(229, 36%, 15%, 1);
   --table-stripe-dark: hsla(229, 38%, 11%, 1);
+  --table-border-dark: hsla(230, 40%, 16%, 1);
   --text-placeholder-dark: hsla(220, 40%, 75%, 0.4);
 
-  --text-critical-dark: #b91c1c;
+  --text-critical-dark: #dc2626;
   --bg-critical-dark: hsla(0, 74%, 42%, 0.2);
-  --text-high-dark: #c2410c;
+  --text-high-dark: #ea580c;
   --bg-high-dark: hsla(17, 88%, 40%, 0.2);
-  --text-medium-dark: #a16207;
+  --text-medium-dark: #ca8a04;
   --bg-medium-dark: hsla(35, 92%, 33%, 0.2);
-  --text-low-dark: #0369a1;
+  --text-low-dark: #0284c7;
   --bg-low-dark: hsla(201, 96%, 32%, 0.2);
-  --text-info-dark: #7e22ce;
+  --text-info-dark: #9333ea;
   --bg-info-dark: hsla(272, 72%, 47%, 0.2);
 }
 
@@ -369,6 +371,31 @@ button:disabled:active > * {
   stroke-width: 2px;
 }
 
+.btn-group {
+  display: inline-flex;
+}
+
+.btn-group button {
+  border-radius: 0;
+  flex-grow: 1;
+}
+
+.btn-group button:first-child {
+  border-radius: .375rem 0 0 .375rem;
+}
+
+.btn-group button:last-child {
+  border-radius: 0 .375rem .375rem 0;
+}
+
+.btn-group button + button {
+  border-left-width: 0;
+}
+
+.btn-group button:has(+ .btn-primary) {
+  border-right-width: 0;
+}
+
 details {
   border: 1px solid light-dark(var(--border-light), var(--border-dark));
   border-radius: 0.375rem;
@@ -405,7 +432,7 @@ td {
 }
 
 th {
-  border-bottom: 1px solid light-dark(var(--border-light), var(--border-dark));
+  border-bottom: 1px solid light-dark(var(--table-border-light), var(--table-border-dark));
   color: light-dark(var(--text-muted-light), var(--text-muted-dark));
   font-variant: all-small-caps;
   font-weight: 500;
@@ -415,8 +442,17 @@ td {
   color: light-dark(var(--text-primary-light), var(--text-primary-dark));
 }
 
+.table-striped th,
+.table-bordered th {
+  border-bottom: none;
+}
+
 .table-striped tbody tr:nth-child(odd) {
   background: light-dark(var(--table-stripe-light), var(--table-stripe-dark));
+}
+
+.table-bordered td {
+  border-top: 1px solid light-dark(var(--table-border-light), var(--table-border-dark));
 }
 
 .table-editable {
@@ -875,12 +911,12 @@ dialog.modal-alt {
   line-height: 1.2;
 }
 
-.name {
+.user-details .name {
   color: light-dark(var(--text-primary-light), var(--text-primary-dark));
   font-weight: 600;
 }
 
-.group {
+.user-details .group {
   font-size: 0.75rem;
 }
 
