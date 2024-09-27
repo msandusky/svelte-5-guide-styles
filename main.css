@@ -733,7 +733,7 @@ dialog.modal-alt {
   justify-content: center;
 }
 
-.modal-alt .modal-header h1 {
+.modal-alt .modal-header :is(h1, h2, h3, h4) {
   margin: 0 0 1rem;
   font-weight: 600;
   font-size: 1.75rem;
