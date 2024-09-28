@@ -565,8 +565,8 @@ input:disabled {
   stroke-width: 1.5px;
 }
 
-input:hover,
-.input-btn-group:has(input:hover) > button {
+input:hover:not(:disabled),
+.input-btn-group:has(input:hover:not(:disabled)) > button {
   border-color: light-dark(
     var(--border-input-hover-light),
     var(--border-input-hover-dark)
