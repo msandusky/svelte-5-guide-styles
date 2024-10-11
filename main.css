@@ -774,6 +774,20 @@ dialog.modal-alt {
   font-weight: normal;
 }
 
+.dialog-dropdown-wrapper > button:hover:not(:disabled) {
+  border-color: light-dark(var(--border-input-hover-light), var(--border-input-hover-dark));
+}
+
+.dialog-dropdown-wrapper > button:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.dialog-dropdown-wrapper > button:active,
+.dialog-dropdown-wrapper > button:active > * {
+  opacity: 1;
+}
+
 .dialog-dropdown-wrapper:has(dialog.dialog-dropdown[open]) > span,
 .dialog-dropdown-wrapper:has(dialog.dialog-dropdown[open]) > button {
   z-index: 2;
