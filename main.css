@@ -286,7 +286,7 @@ button {
   border-radius: 0.375rem;
   background: light-dark(var(--bg-body-light), var(--bg-body-dark));
   padding: 0.5rem;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.9375rem;
   white-space: nowrap;
 }
@@ -356,6 +356,7 @@ button:disabled:active > * {
 
 .btn-icon-text {
   gap: 0.375rem;
+  padding: 0.5rem 0.875rem 0.5rem 0.5rem;
 }
 
 .btn-icon.btn-sm {
@@ -364,6 +365,7 @@ button:disabled:active > * {
 
 .btn-icon-text.btn-sm {
   gap: 0.25rem;
+  padding: 0.25rem 0.4375rem 0.25rem 0.25rem;
 }
 
 .btn-icon.btn-sm svg,
@@ -473,7 +475,8 @@ td {
   padding-bottom: 1.5px;
 }
 
-label:has(input:disabled) {
+label:has(input:disabled),
+label:has(select:disabled) {
   opacity: 0.5;
   cursor: not-allowed;
 }
@@ -485,7 +488,8 @@ label span {
   font-size: 0.9375rem;
 }
 
-input {
+input,
+select {
   border: 1px solid light-dark(var(--border-input-light), var(--border-input-dark));
   border-radius: 0.375rem;
   background: none;
@@ -563,7 +567,8 @@ input:disabled {
 }
 
 input:hover:not(:disabled),
-.input-btn-group:has(input:hover:not(:disabled)) > button {
+.input-btn-group:has(input:hover:not(:disabled)) > button,
+select:hover:not(:disabled) {
   border-color: light-dark(var(--border-input-hover-light), var(--border-input-hover-dark));
 }
 
@@ -632,18 +637,53 @@ body:has(dialog.modal[open]) {
   overflow: hidden;
 }
 
+body:has(dialog.dialog-dropdown[open]) {
+  filter: opacity(.5);
+}
+
+dialog.modal[open] {
+  opacity: 1;
+  transform: translateY(calc((100vh - 100%) / 3)) scale(1);
+  transition: all var(--duration) allow-discrete;
+}
+
 dialog {
+  --duration: 150ms cubic-bezier(0.23, 1, 0.32, 1);
+
   color: inherit;
 }
 
 dialog.modal {
-  transform: translateY(calc((100vh - 100%) / 3));
+  transform: translateY(calc((100vh - 100%) / 3)) scale(.96);
   margin: 0 auto;
   box-shadow: 0 8px 24px -16px light-dark(var(--box-shadow-modal-light), var(--box-shadow-modal-dark));
   border: none;
   border-radius: 0.5rem;
   background: none;
   padding: 0;
+  opacity: 0;
+}
+
+@starting-style {
+  dialog.modal[open] {
+    opacity: 0;
+    transform: translateY(calc((100vh - 100%) / 3)) scale(.96);
+  }
+}
+
+dialog.modal::backdrop {
+  background-color: hsla(0, 0%, 0%, 0);
+}
+
+dialog.modal[open]::backdrop {
+  background-color: light-dark(var(--bd-modal-light), var(--bd-modal-dark));
+  transition: all var(--duration) allow-discrete;
+}
+
+@starting-style {
+  dialog.modal[open]::backdrop {
+    background-color: hsla(0, 0%, 0%, 0);
+  }
 }
 
 dialog.modal .modal-sm {
@@ -656,10 +696,6 @@ dialog.modal .modal-md {
 
 dialog.modal .modal-lg {
   max-width: 1000px;
-}
-
-dialog.modal::backdrop {
-  background: light-dark(var(--bd-modal-light), var(--bd-modal-dark));
 }
 
 .modal-content {
@@ -746,17 +782,28 @@ dialog.modal-alt {
   border-color: transparent;
 }
 
-.dialog-dropdown-wrapper:has(dialog.dialog-dropdown[open])::before {
+.dialog-dropdown-wrapper:has(dialog.dialog-dropdown)::before {
   position: fixed;
   top: 0;
   left: calc((0 - var(--container-offset-left)) * 1px);
   z-index: 1;
-  background: light-dark(var(--bd-modal-light), var(--bd-modal-dark));
+  background-color: hsla(0, 0%, 0%, 0);
   width: 100vw;
   height: max(100vh, var(--container-height));
   overflow: hidden;
   pointer-events: none;
   content: '';
+  transition: background-color var(--duration) allow-discrete;
+}
+
+.dialog-dropdown-wrapper:has(dialog.dialog-dropdown[open])::before {
+  background-color: light-dark(var(--bd-modal-light), var(--bd-modal-dark));
+}
+
+@starting-style {
+  dialog.dialog-dropdown[open]::before {
+    background-color: hsla(0, 0%, 0%, 0);
+  }
 }
 
 .dialog-dropdown-wrapper > span {
@@ -779,7 +826,7 @@ dialog.modal-alt {
 }
 
 .dialog-dropdown-wrapper > button:disabled {
-  opacity: .5;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
@@ -798,6 +845,12 @@ dialog.modal-alt {
   stroke-width: 2px;
 }
 
+.dialog-dropdown-wrapper dialog.dialog-dropdown[open] {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform var(--duration) allow-discrete;
+}
+
 .dialog-dropdown-wrapper > .dialog-dropdown {
   position: absolute;
   margin: 0;
@@ -807,6 +860,15 @@ dialog.modal-alt {
   padding: 0;
   min-height: 6.75rem;
   max-height: min(20rem, var(--dialog-dropdown-max-space));
+  opacity: 0;
+  transform: translateY(-.875rem);
+}
+
+@starting-style {
+  .dialog-dropdown-wrapper dialog.dialog-dropdown[open] {
+    opacity: 0;
+    transform: translateY(-.875rem);
+  }
 }
 
 .dialog-dropdown-wrapper > .dialog-dropdown::backdrop {
@@ -996,6 +1058,7 @@ dialog.modal-alt {
   height: 100%;
   font-size: 0.9375rem;
   line-height: inherit;
+  cursor: pointer;
 }
 
 .dropdown .dropdown-menu ul li a svg,
@@ -1006,7 +1069,6 @@ dialog.modal-alt {
 }
 
 .dropdown .dropdown-menu ul li a {
-  cursor: default;
   color: inherit;
   text-decoration: none;
 }
