@@ -637,10 +637,6 @@ body:has(dialog.modal[open]) {
   overflow: hidden;
 }
 
-body:has(dialog.dialog-dropdown[open]) > *:not(.dialog-dropdown-wrapper) {
-  filter: opacity(.5);
-}
-
 dialog.modal[open] {
   opacity: 1;
   transform: translateY(calc((100vh - 100%) / 3)) scale(1);
@@ -847,7 +843,7 @@ dialog.modal-alt {
 
 .dialog-dropdown-wrapper dialog.dialog-dropdown[open] {
   opacity: 1;
-  transform: translateY(0);
+  transform: scale(1);
   transition: transform var(--duration) allow-discrete;
 }
 
@@ -861,13 +857,13 @@ dialog.modal-alt {
   min-height: 6.75rem;
   max-height: min(20rem, var(--dialog-dropdown-max-space));
   opacity: 0;
-  transform: translateY(-.875rem);
+  transform: scale(.96);
 }
 
 @starting-style {
   .dialog-dropdown-wrapper dialog.dialog-dropdown[open] {
     opacity: 0;
-    transform: translateY(-.875rem);
+    transform: scale(.96);
   }
 }
 
