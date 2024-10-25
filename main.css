@@ -614,6 +614,17 @@ fieldset:not(.fieldset-border) legend {
   margin-bottom: 1rem;
 }
 
+code {
+  background: light-dark(var(--border-light), var(--border-dark));
+  padding: .1875rem .3125rem;
+  border-radius: 0.3125rem;
+  font-size: 1.1em;
+}
+
+.modal-content code {
+  background: light-dark(var(--border-light), var(--border-input-dark));
+}
+
 .text-center {
   text-align: center;
 }
