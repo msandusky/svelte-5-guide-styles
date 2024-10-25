@@ -637,7 +637,7 @@ body:has(dialog.modal[open]) {
   overflow: hidden;
 }
 
-body:has(dialog.dialog-dropdown[open]) {
+body:has(dialog.dialog-dropdown[open]) > *:not(.dialog-dropdown-wrapper) {
   filter: opacity(.5);
 }
 
