@@ -919,7 +919,7 @@ dialog.modal-alt {
 }
 
 .dialog-dropdown-content .no-results {
-  margin-top: 0.5rem;
+  margin: 0.3125rem 0;
   overflow: hidden;
   color: light-dark(var(--text-muted-light), var(--text-muted-dark));
   text-overflow: ellipsis;
